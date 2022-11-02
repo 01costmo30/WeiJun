@@ -4,8 +4,9 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
+  <div class="">
   <div class="ui medium pink image circle"></div>
-  <div class="ui big purple image circle"></div>
+  <div class="ui big purple image circle"></div></div>
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
@@ -13,6 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
+        
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
@@ -33,6 +35,14 @@ import HelloWorld from './components/HelloWorld.vue'
 
 .circle {
   border-radius: 100rem;
+}
+
+div > .circle {
+  float: left;
+}
+
+div > .big.circle {
+  margin: 8em 0 0 -12em;
 }
 
 .ui.medium.circle.image {
