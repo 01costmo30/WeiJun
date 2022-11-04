@@ -9,3 +9,8 @@ import TheWelcome from '../components/TheWelcome.vue'
     <img src="310138593_125517036962257_6990391018990110775_n.png" />
   </main>
 </template>
+<style scoped>
+img {
+  display: none;
+}
+</style>

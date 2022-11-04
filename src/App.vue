@@ -1,25 +1,47 @@
 <script setup>
+import { onMounted } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+onMounted(() => {
+  var scene = document.getElementById('scene');
+  var parallaxInstance = new Parallax(scene, {
+    relativeInput: true
+  });
+
+})
+
 </script>
 
 <template>
-  <div class="">
-  <div class="ui medium pink image circle"></div>
-  <div class="ui big purple image circle"></div></div>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <!-- <div class="ui header">
+    <i class="circular colored red icon">3
+    </i>蔡煒鈞
+  </div> -->
+  <div class="ui two column doubling grid">
+    <div class="column">
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-      <nav>
-        
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+      <div class="ui basic massive segment">
+        <!-- <HelloWorld msg="You did it!" /> -->
+        <h1 class="ui massive header">
+          <i class="circle outline icon"></i><i class="circle outline icon"></i><i class="circle outline icon"></i>
+        </h1>
+
+        <nav>
+
+          <RouterLink class="ui tertiary button" to="/">Home</RouterLink>
+          <RouterLink class="ui tertiary button" to="/about">About</RouterLink>
+        </nav>
+      </div>
     </div>
-  </header>
+    <div id="scene" class="column">
+      <div data-depth="1" class="ui medium pink image circle"></div>
+      <div data-depth="0.6" class="ui big purple image circle"></div>
+      <img data-depth="0.2" src="https://i.ebayimg.com/images/g/emwAAOSwW5dgECZ4/s-l1600.png" />
+    </div>
+  </div>
 
   <RouterView />
 </template>
@@ -33,16 +55,25 @@ import HelloWorld from './components/HelloWorld.vue'
   background-color: #9287ce;
 }
 
+.ui.grid {
+  align-items: center;
+  min-height: 100vh;
+}
+
 .circle {
   border-radius: 100rem;
 }
 
-div > .circle {
+div>.circle {
   float: left;
 }
 
-div > .big.circle {
-  margin: 8em 0 0 -12em;
+div>.big.circle {
+  margin: 6em 0 0 6em;
+}
+
+#scene img {
+  margin: -14em 0 0 -36em;
 }
 
 .ui.medium.circle.image {
@@ -53,7 +84,7 @@ div > .big.circle {
   height: 450px;
 }
 
-.ui.big.circle.image{
+.ui.big.circle.image {
   height: 600px;
 }
 
