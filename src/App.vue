@@ -21,7 +21,7 @@ onMounted(() => {
   <div class="ui two column doubling grid">
     <div class="column">
 
-      <img alt="Vue logo" class="logo" src="img/3.png" width="125" height="125" />
+      <img alt="Vue logo" class="logo" src="/img/3.png" width="125" height="125" />
 
       <div class="ui basic massive segment">
         <!-- <HelloWorld msg="You did it!" /> -->
@@ -39,7 +39,7 @@ onMounted(() => {
     <div id="scene" class="column">
       <div data-depth="1" data-originX="0" class="ui medium pink image circle"></div>
       <div data-depth="0.6" data-originX="0.5" class="ui big purple image circle"></div>
-      <img data-depth="0.2" data-originX="0" class="ui image" src="img/Photo1.png" />
+      <img data-depth="0.2" data-originX="0" class="ui image" src="/img/Photo1.png" />
     </div>
   </div>
 
