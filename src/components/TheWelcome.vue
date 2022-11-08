@@ -1,86 +1,196 @@
 <script setup>
-import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
+import { onMounted, onUpdated } from 'vue';
+import { RouterLink } from 'vue-router';
+
+onMounted(() => {
+  var scene = document.getElementById('scene');
+  var parallaxInstance = new Parallax(scene, {
+    relativeInput: true
+  });
+
+
+  var scene1 = document.getElementById('scene1');
+  var parallaxInstance1 = new Parallax(scene1, {
+    relativeInput: true
+  });
+})
+
+onUpdated(() => {
+  var scene = document.getElementById('scene');
+  var parallaxInstance = new Parallax(scene, {
+    relativeInput: true
+  });
+
+
+  var scene1 = document.getElementById('scene1');
+  var parallaxInstance1 = new Parallax(scene1, {
+    relativeInput: true
+  });
+})
+
+function showModal() {
+  $('.ui.overlay.fullscreen.modal')
+    .modal({
+      inverted: true,
+      blurring: true
+    }).modal('show');
+}
 </script>
 
 <template>
-  <WelcomeItem>
-    <template #icon>
-      <DocumentationIcon />
-    </template>
-    <template #heading>Documentation</template>
+  <div class="ui basic segment">
+    <div class="ui two column doubling grid">
+      <div class="column">
 
-    Vue’s
-    <a href="https://vuejs.org/" target="_blank" rel="noopener">official documentation</a>
-    provides you with all information you need to get started.
-  </WelcomeItem>
 
-  <WelcomeItem>
-    <template #icon>
-      <ToolingIcon />
-    </template>
-    <template #heading>Tooling</template>
+        <div id="scene1" class="ui basic massive segment">
+          <!-- <HelloWorld msg="You did it!" /> -->
+          <h1 data-depth="0.2" data-origin-x=".6" class="ui massive header">
+            <img alt="Vue logo" class="logo" src="/img/3.png" width="125" height="125" />
+            <span class="ui header">蔡煒鈞</span>
+          </h1>
 
-    This project is served and bundled with
-    <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
-    recommended IDE setup is
-    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VSCode</a> +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank" rel="noopener">Volar</a>. If
-    you need to test your components and web pages, check out
-    <a href="https://www.cypress.io/" target="_blank" rel="noopener">Cypress</a> and
-    <a href="https://on.cypress.io/component" target="_blank">Cypress Component Testing</a>.
+          <nav data-depth="0.2" data-origin-x="1" data-origin-y="1">
 
-    <br />
+            <!-- <RouterLink class="ui tertiary massive button" to="/">Home</RouterLink> -->
+            <!-- <RouterLink class="ui tertiary massive button" to="/about">聯絡信箱</RouterLink> -->
+            <div class="ui tertiary massive button" @click="showModal">聯絡信箱</div>
+          </nav>
+        </div>
+      </div>
+      <div id="scene" class="column">
+        <div data-depth="1" data-originX="0" class="ui medium pink image circle"></div>
+        <div data-depth="0.6" data-originX="0.5" class="ui big purple image circle"></div>
+        <img data-depth="0.2" data-originX="0" class="ui image" src="/img/Photo1.png" />
+        <span data-depth="0.1" data-origin-x=".5" data-origin-y=".5" class="ui huge massive text">煒鈞用心</span>
+        <span data-depth="0.1" data-origin-x=".5" data-origin-y=".5" class="ui huge massive text">新民創新</span>
+      </div>
+    </div>
+  </div>
 
-    More instructions are available in <code>README.md</code>.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <EcosystemIcon />
-    </template>
-    <template #heading>Ecosystem</template>
-
-    Get official tools and libraries for your project:
-    <a href="https://pinia.vuejs.org/" target="_blank" rel="noopener">Pinia</a>,
-    <a href="https://router.vuejs.org/" target="_blank" rel="noopener">Vue Router</a>,
-    <a href="https://test-utils.vuejs.org/" target="_blank" rel="noopener">Vue Test Utils</a>, and
-    <a href="https://github.com/vuejs/devtools" target="_blank" rel="noopener">Vue Dev Tools</a>. If
-    you need more resources, we suggest paying
-    <a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">Awesome Vue</a>
-    a visit.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <CommunityIcon />
-    </template>
-    <template #heading>Community</template>
-
-    Got stuck? Ask your question on
-    <a href="https://chat.vuejs.org" target="_blank" rel="noopener">Vue Land</a>, our official
-    Discord server, or
-    <a href="https://stackoverflow.com/questions/tagged/vue.js" target="_blank" rel="noopener"
-      >StackOverflow</a
-    >. You should also subscribe to
-    <a href="https://news.vuejs.org" target="_blank" rel="noopener">our mailing list</a> and follow
-    the official
-    <a href="https://twitter.com/vuejs" target="_blank" rel="noopener">@vuejs</a>
-    twitter account for latest news in the Vue world.
-  </WelcomeItem>
-
-  <WelcomeItem>
-    <template #icon>
-      <SupportIcon />
-    </template>
-    <template #heading>Support Vue</template>
-
-    As an independent project, Vue relies on community backing for its sustainability. You can help
-    us by
-    <a href="https://vuejs.org/sponsor/" target="_blank" rel="noopener">becoming a sponsor</a>.
-  </WelcomeItem>
+  <div class="ui overlay fullscreen modal">
+    <i class="close icon"></i>
+    <div class="content">
+      <div class="ui three column doubling vary padded grid">
+        <div class="column">
+          <img class="ui image" src="/QR code/OfficalQRCode.png" />
+          <h1 class="ui center aligned basic header label">LINE</h1>
+        </div>
+        <div class="column">
+          <img class="ui image" src="/QR Code/qrCode.png" />
+          <a href="https://www.facebook.com/ilovesinminli/?ref=page_internal" target="_blank">
+            <h1 class="ui center aligned basic header label">FB粉專</h1>
+          </a>
+        </div>
+        <div class="column">
+          <img class="ui image" src="/QR Code/意見表QRCode.png" />
+          <h1 class="ui center aligned basic header label">意見表</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500;600;700;900&display=swap');
+
+.pink {
+  background-color: #efc1c5;
+}
+
+.purple {
+  background-color: #9287ce;
+}
+
+.ui.grid {
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.circle {
+  border-radius: 100rem;
+}
+
+div>.circle {
+  float: left;
+}
+
+div>.big.circle {
+  margin: 6em 0 0 6em;
+}
+
+#scene {
+  min-height: 100vh;
+  /* overflow-y: hidden;
+  overflow-x:visible; */
+}
+
+/* #scene img {
+  margin: 0em 0 0 -6em;
+} */
+
+.ui.medium.circle.image {
+  height: 300px;
+}
+
+.ui.large.circle.image {
+  height: 450px;
+}
+
+.ui.big.circle.image {
+  height: 600px;
+}
+
+.ui.huge.circle.image {
+  height: 800px;
+}
+
+.ui.massive.header {
+  display: flex !important;
+  align-items: center;
+  width: 100%;
+}
+
+.ui.massive.header img {
+  margin-top: 0;
+}
+
+.ui.massive.header .header {
+  margin-top: 0;
+}
+
+nav {
+  margin-top: 7em;
+  margin-left: 2em;
+  pointer-events: all;
+}
+
+.column .ui.huge.text {
+  font-weight: bold;
+  font-family: 'Noto Serif TC', serif;
+  color: #9287ce;
+  text-shadow: 1px 1px #fff, 2px 2px #fff, 3px 3px #fff, 4px 4px #fff;
+  font-size: 11vh;
+}
+
+.column .ui.huge.text:nth-of-type(1) {
+  margin-top: calc(100vh - 3em);
+}
+
+.column .ui.huge.text:nth-of-type(2) {
+  margin-top: calc(100vh - 1.5em);
+  margin-left: 1em;
+}
+
+.ui.overlay.fullscreen.modal,
+.ui.overlay.fullscreen.modal .content {
+  background: center / cover no-repeat url('img/mesh-743.png');
+}
+
+.ui.modal .content .header.label {
+  border-radius: 2em;
+  width: 100%;
+  margin-top: .5em;
+}
+</style>
