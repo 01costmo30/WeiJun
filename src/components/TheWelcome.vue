@@ -92,18 +92,18 @@ function showModal() {
         <div class="column">
           <img class="ui image" data-src="QR code/OfficalQRCode.png" />
           <a href="https://lin.ee/4k4FgLt" target="_blank">
-          <h1 class="ui center aligned basic header label">LINE</h1></a>
+          <h1 class="ui green center aligned basic header label">LINE</h1></a>
         </div>
         <div class="column">
           <img class="ui image" data-src="QR code/qrCode.png" />
           <a href="https://www.facebook.com/ilovesinminli/?ref=page_internal" target="_blank">
-            <h1 class="ui center aligned basic header label">FB粉專</h1>
+            <h1 class="ui blue center aligned basic header label">FB粉專</h1>
           </a>
         </div>
         <div class="column">
           <img class="ui image" data-src="QR code/意見表qrCode.png" />
           <a href="https://forms.gle/LJdoo7mNJuumt9C17" target="_blank">
-          <h1 class="ui center aligned basic header label">意見表</h1></a>
+          <h1 class="ui violet center aligned basic header label">意見表單</h1></a>
         </div>
       </div>
     </div>
