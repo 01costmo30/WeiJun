@@ -13,6 +13,14 @@ onMounted(() => {
   var parallaxInstance1 = new Parallax(scene1, {
     relativeInput: true
   });
+
+  // $('.column .image img')
+  // .visibility({
+  // context    : '.dimmer',
+  //   type       : 'image',
+  //   transition : 'fade in',
+  //   duration   : 1000
+  // });
 })
 
 onUpdated(() => {
@@ -32,7 +40,16 @@ function showModal() {
   $('.ui.overlay.fullscreen.modal')
     .modal({
       inverted: true,
-      blurring: true
+      blurring: true,
+      onVisible: function () {
+        $('.column img.image')
+          .visibility({
+            context: '.scrolling.content',
+            type: 'image',
+            transition: 'fade in',
+            duration: 1000
+          });
+      }
     }).modal('show');
 }
 </script>
@@ -70,21 +87,23 @@ function showModal() {
 
   <div class="ui overlay fullscreen modal">
     <i class="close icon"></i>
-    <div class="content">
+    <div class="scrolling content">
       <div class="ui three column doubling vary padded grid">
         <div class="column">
-          <img class="ui image" src="/QR code/OfficalQRCode.png" />
-          <h1 class="ui center aligned basic header label">LINE</h1>
+          <img class="ui image" data-src="/QR code/OfficalQRCode.png" />
+          <a href="https://lin.ee/4k4FgLt" target="_blank">
+          <h1 class="ui center aligned basic header label">LINE</h1></a>
         </div>
         <div class="column">
-          <img class="ui image" src="/QR Code/qrCode.png" />
+          <img class="ui image" data-src="/QR Code/qrCode.png" />
           <a href="https://www.facebook.com/ilovesinminli/?ref=page_internal" target="_blank">
             <h1 class="ui center aligned basic header label">FB粉專</h1>
           </a>
         </div>
         <div class="column">
-          <img class="ui image" src="/QR Code/意見表QRCode.png" />
-          <h1 class="ui center aligned basic header label">意見表</h1>
+          <img class="ui image" data-src="/QR Code/意見表QRCode.png" />
+          <a href="https://forms.gle/LJdoo7mNJuumt9C17" target="_blank">
+          <h1 class="ui center aligned basic header label">意見表</h1></a>
         </div>
       </div>
     </div>
@@ -186,6 +205,11 @@ nav {
 .ui.overlay.fullscreen.modal,
 .ui.overlay.fullscreen.modal .content {
   background: center / cover no-repeat url('img/mesh-743.png');
+}
+
+.ui.ui.overlay.fullscreen.modal .scrolling.content {
+  height: 100vh;
+  max-height: 100vh;
 }
 
 .ui.modal .content .header.label {
