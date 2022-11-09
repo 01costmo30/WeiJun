@@ -88,7 +88,7 @@ function showModal() {
   <div class="ui overlay fullscreen modal">
     <i class="close icon"></i>
     <div class="scrolling content">
-      <div class="ui three column doubling vary padded grid">
+      <div class="ui three column doubling stackable vary padded grid">
         <div class="column">
           <img class="ui image" data-src="QR code/OfficalQRCode.png" />
           <a href="https://lin.ee/4k4FgLt" target="_blank">
@@ -204,12 +204,20 @@ nav {
 
 .ui.overlay.fullscreen.modal,
 .ui.overlay.fullscreen.modal .content {
-  background: center / cover no-repeat url('img/mesh-743.png');
+  background: center / cover no-repeat url('./img/mesh-743.png');
 }
 
 .ui.ui.overlay.fullscreen.modal .scrolling.content {
   height: 100vh;
   max-height: 100vh;
+}
+
+.ui.modal .content .ui.grid {
+  min-height: 100%;
+}
+
+.ui.modal .content .column img.image {
+  filter: drop-shadow(0px 0px 8px white);
 }
 
 .ui.modal .content .header.label {
