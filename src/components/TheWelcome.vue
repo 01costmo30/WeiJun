@@ -225,4 +225,18 @@ nav {
   width: 100%;
   margin-top: .5em;
 }
+
+@media screen and (max-width: 520px) {
+  .ui.massive.header img {
+    width: 17vw;
+  }
+
+  .ui.massive.header .ui.header {
+    font-size: 16vw;
+  }
+
+  nav {
+    margin-top: 4em;
+  }
+}
 </style>
