@@ -58,17 +58,13 @@ function showModal() {
   <div class="ui basic segment">
     <div class="ui two column doubling grid">
       <div class="column">
-
-
         <div id="scene1" class="ui basic massive segment">
-          <!-- <HelloWorld msg="You did it!" /> -->
           <h1 data-depth="0.2" data-origin-x=".6" class="ui massive header">
             <img alt="Vue logo" class="logo" src="/img/3.png" width="125" height="125" />
             <span class="ui header">蔡煒鈞</span>
           </h1>
 
           <nav data-depth="0.2" data-origin-x="1" data-origin-y="1">
-
             <!-- <RouterLink class="ui tertiary massive button" to="/">Home</RouterLink> -->
             <!-- <RouterLink class="ui tertiary massive button" to="/about">聯絡信箱</RouterLink> -->
             <div class="ui tertiary massive button" @click="showModal">聯絡信箱</div>
@@ -92,7 +88,8 @@ function showModal() {
         <div class="column">
           <img class="ui image" data-src="QR code/OfficalQRCode.png" />
           <a href="https://lin.ee/4k4FgLt" target="_blank">
-          <h1 class="ui green center aligned basic header label">LINE</h1></a>
+            <h1 class="ui green center aligned basic header label">LINE</h1>
+          </a>
         </div>
         <div class="column">
           <img class="ui image" data-src="QR code/qrCode.png" />
@@ -103,7 +100,8 @@ function showModal() {
         <div class="column">
           <img class="ui image" data-src="QR code/意見表qrCode.png" />
           <a href="https://forms.gle/LJdoo7mNJuumt9C17" target="_blank">
-          <h1 class="ui violet center aligned basic header label">意見表單</h1></a>
+            <h1 class="ui violet center aligned basic header label">意見表單</h1>
+          </a>
         </div>
       </div>
     </div>
@@ -167,20 +165,23 @@ div>.big.circle {
 
 .ui.massive.header {
   display: flex !important;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
 }
 
 .ui.massive.header img {
   margin-top: 0;
+  max-width: max(1.5em, 10vw);
 }
 
 .ui.massive.header .header {
   margin-top: 0;
+  font-size: max(1.28em, 9vw);
+  text-shadow: 1px 1px #fff, 2px 2px #fff, 3px 3px #fff, 4px 4px #fff;
 }
 
 nav {
-  margin-top: 7em;
+  margin-top: max(4em, 12vw);
   margin-left: 2em;
   pointer-events: all;
 }
@@ -226,7 +227,42 @@ nav {
   margin-top: .5em;
 }
 
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 991px) {
+  .ui.grid {
+    align-items: unset;
+  }
+
+  .ui.doubling.grid .column:nth-of-type(1) {
+    max-height: 20vh;
+  }
+
+  .ui.doubling.grid .column:nth-of-type(2) {
+    max-height: 100vh;
+    margin-top: -20vh;
+    margin-left: calc(100vw - 100vh * 0.6);
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .ui.doubling.grid .column:nth-of-type(2) {
+    max-height: 80vh;
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  #scene {
+    min-height: 80vh;
+  }
+
+  .column .ui.huge.text:nth-of-type(1) {
+    margin-top: calc(80vh - 3em);
+  }
+
+  .column .ui.huge.text:nth-of-type(2) {
+    margin-top: calc(80vh - 1.5em);
+  }
+
   .ui.massive.header img {
     width: 17vw;
   }
@@ -236,7 +272,20 @@ nav {
   }
 
   nav {
-    margin-top: 4em;
+    margin-top: 22vw;
   }
+}
+
+@media screen and (max-width:425px) {
+
+.column .ui.huge.text:nth-of-type(1) {
+  font-size: 18vw;
+  margin-top: calc(80vh - 50vw);
+}
+
+.column .ui.huge.text:nth-of-type(2) {
+  font-size: 18vw;
+  margin-top: calc(80vh - 28vw);
+}
 }
 </style>
