@@ -67,7 +67,7 @@ function showModal() {
           <nav data-depth="0.2" data-origin-x="1" data-origin-y="1">
             <!-- <RouterLink class="ui tertiary massive button" to="/">Home</RouterLink> -->
             <!-- <RouterLink class="ui tertiary massive button" to="/about">聯絡信箱</RouterLink> -->
-            <div class="ui tertiary massive button" @click="showModal">聯絡信箱</div>
+            <div class="ui tertiary massive button" @click="showModal">聯絡方式</div>
           </nav>
         </div>
       </div>
@@ -205,7 +205,7 @@ nav {
 
 .ui.overlay.fullscreen.modal,
 .ui.overlay.fullscreen.modal .content {
-  background: center / cover no-repeat url('./img/mesh-743.png');
+  background: center / cover no-repeat url('@/assets/mesh-743.png');
 }
 
 .ui.ui.overlay.fullscreen.modal .scrolling.content {
@@ -232,11 +232,11 @@ nav {
     align-items: unset;
   }
 
-  .ui.doubling.grid .column:nth-of-type(1) {
+  .ui.two.column.doubling.grid .column:nth-of-type(1) {
     max-height: 20vh;
   }
 
-  .ui.doubling.grid .column:nth-of-type(2) {
+  .ui.two.column.doubling.grid .column:nth-of-type(2) {
     max-height: 100vh;
     margin-top: -20vh;
     margin-left: calc(100vw - 100vh * 0.6);
@@ -245,7 +245,7 @@ nav {
 }
 
 @media screen and (max-width: 625px) {
-  .ui.doubling.grid .column:nth-of-type(2) {
+  .ui.two.column.doubling.grid .column:nth-of-type(2) {
     max-height: 80vh;
     margin-top: 0;
     margin-left: 0;
