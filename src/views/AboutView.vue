@@ -1,4 +1,5 @@
 <template>
+  <RouterLink to="/WeiJun">新民里大小事 蔡煒鈞</RouterLink>
   <div class="about">
     <h1>This is an about page</h1>
   </div>

@@ -1,1 +1,5 @@
 @import './base.css';
+
+.ui.hidden.button {
+  display: none;
+}
