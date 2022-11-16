@@ -68,7 +68,7 @@ function showModal() {
             <!-- <RouterLink class="ui tertiary massive button" to="/">Home</RouterLink> -->
             <!-- <RouterLink class="ui tertiary massive button" to="/about">聯絡信箱</RouterLink> -->
             <div class="ui tertiary massive button" @click="showModal">聯絡方式</div>
-            <RouterLink class="ui tertiary massive hidden button" to="/WeiJun/About">初心</RouterLink>
+            <RouterLink class="ui tertiary massive hidden button" to="/WeiJun/About">認識煒鈞</RouterLink>
           </nav>
         </div>
       </div>

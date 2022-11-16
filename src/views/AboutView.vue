@@ -1,16 +1,15 @@
+<script setup>
+import TopMenu from '../components/TopMenu.vue';
+
+</script>
 <template>
-  <RouterLink to="/WeiJun">新民里大小事 蔡煒鈞</RouterLink>
+  <TopMenu></TopMenu>
+  <!-- <RouterLink to="/WeiJun">新民里大小事 蔡煒鈞</RouterLink> -->
   <div class="about">
-    <h1>This is an about page</h1>
+    
   </div>
 </template>
 
 <style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
+
 </style>
