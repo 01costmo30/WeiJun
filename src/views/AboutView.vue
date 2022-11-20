@@ -10,6 +10,9 @@ import TopMenu from '../components/TopMenu.vue';
   </div>
 </template>
 
-<style>
-
+<style scoped>
+#app:has(.ui.secondary.menu) {
+ background: url('@/assets/mesh-743.png');
+}
 </style>
+ 

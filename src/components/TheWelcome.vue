@@ -123,6 +123,7 @@ function showModal() {
 .ui.grid {
   align-items: center;
   min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   overflow: hidden;
 }
 
@@ -140,6 +141,7 @@ div>.big.circle {
 
 #scene {
   min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   /* overflow-y: hidden;
   overflow-x:visible; */
 }
@@ -211,7 +213,9 @@ nav {
 
 .ui.ui.overlay.fullscreen.modal .scrolling.content {
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   max-height: 100vh;
+  max-height: calc(var(--vh, 1vh) * 100);
 }
 
 .ui.modal .content .ui.grid {
@@ -235,12 +239,16 @@ nav {
 
   .ui.two.column.doubling.grid .column:nth-of-type(1) {
     max-height: 20vh;
+    max-height: calc(var(--vh, 1vh) * 100);
   }
 
   .ui.two.column.doubling.grid .column:nth-of-type(2) {
     max-height: 100vh;
+    max-height: calc(var(--vh, 1vh) * 100);
     margin-top: -20vh;
+    margin-top: calc(var(--vh, 1vh) * -20);
     margin-left: calc(100vw - 100vh * 0.6);
+    margin-left: calc( 100vw +var(--vh, 1vh) * -60);
     z-index: -1;
   }
 }
@@ -248,12 +256,14 @@ nav {
 @media screen and (max-width: 625px) {
   .ui.two.column.doubling.grid .column:nth-of-type(2) {
     max-height: 80vh;
+    max-height: calc(var(--vh, 1vh) * 80);
     margin-top: 0;
     margin-left: 0;
   }
 
   #scene {
     min-height: 80vh;
+    min-height: calc(var(--vh, 1vh) * 80);
   }
 
   .column .ui.huge.text:nth-of-type(1) {
