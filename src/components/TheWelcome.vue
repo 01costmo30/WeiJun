@@ -248,7 +248,7 @@ nav {
     margin-top: -20vh;
     margin-top: calc(var(--vh, 1vh) * -20);
     margin-left: calc(100vw - 100vh * 0.6);
-    margin-left: calc( 100vw +var(--vh, 1vh) * -60);
+    margin-left: calc( 100vw + var(--vh, 1vh) * -60);
     z-index: -1;
   }
 }
