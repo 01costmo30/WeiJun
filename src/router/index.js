@@ -18,8 +18,8 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     }
   ],
-  linkActiveClass: 'yellow active',
-  linkExactActiveClass: 'yellow active'
+  linkActiveClass: 'active violet',
+  linkExactActiveClass: 'active violet'
 })
 
 export default router

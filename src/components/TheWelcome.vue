@@ -1,19 +1,23 @@
 <script setup>
-import { onMounted, onUpdated } from 'vue';
+import { onMounted, onUpdated, nextTick } from 'vue';
 import { RouterLink } from 'vue-router';
 
 onMounted(() => {
-  var scene = document.getElementById('scene');
-  var parallaxInstance = new Parallax(scene, {
-    relativeInput: true
-  });
+  nextTick(function () {
+  setTimeout(() => {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
+    });
 
 
-  var scene1 = document.getElementById('scene1');
-  var parallaxInstance1 = new Parallax(scene1, {
-    relativeInput: true
-  });
-
+    var scene1 = document.getElementById('scene1');
+    var parallaxInstance1 = new Parallax(scene1, {
+      relativeInput: true
+    })
+    
+  }, 400);
+  })
   // $('.column .image img')
   // .visibility({
   // context    : '.dimmer',
@@ -24,16 +28,18 @@ onMounted(() => {
 })
 
 onUpdated(() => {
-  var scene = document.getElementById('scene');
-  var parallaxInstance = new Parallax(scene, {
-    relativeInput: true
-  });
+  nextTick(function () {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
+    });
 
 
-  var scene1 = document.getElementById('scene1');
-  var parallaxInstance1 = new Parallax(scene1, {
-    relativeInput: true
-  });
+    var scene1 = document.getElementById('scene1');
+    var parallaxInstance1 = new Parallax(scene1, {
+      relativeInput: true
+    })
+  })
 })
 
 function showModal() {
@@ -80,29 +86,29 @@ function showModal() {
         <span data-depth="0.1" data-origin-x=".5" data-origin-y=".5" class="ui huge massive text">新民創新</span>
       </div>
     </div>
-  </div>
 
-  <div class="ui overlay fullscreen modal">
-    <i class="close icon"></i>
-    <div class="scrolling content">
-      <div class="ui three column doubling stackable vary padded grid">
-        <div class="column">
-          <img class="ui image" data-src="QR code/OfficalQRCode.png" />
-          <a href="https://lin.ee/4k4FgLt" target="_blank">
-            <h1 class="ui green center aligned basic header label">LINE</h1>
-          </a>
-        </div>
-        <div class="column">
-          <img class="ui image" data-src="QR code/qrCode.png" />
-          <a href="https://www.facebook.com/ilovesinminli/?ref=page_internal" target="_blank">
-            <h1 class="ui blue center aligned basic header label">FB粉專</h1>
-          </a>
-        </div>
-        <div class="column">
-          <img class="ui image" data-src="QR code/意見表qrCode.png" />
-          <a href="https://forms.gle/LJdoo7mNJuumt9C17" target="_blank">
-            <h1 class="ui violet center aligned basic header label">意見表單</h1>
-          </a>
+    <div class="ui overlay fullscreen modal">
+      <i class="close icon"></i>
+      <div class="scrolling content">
+        <div class="ui three column doubling stackable vary padded grid">
+          <div class="column">
+            <img class="ui image" data-src="QR code/OfficalQRCode.png" />
+            <a href="https://lin.ee/4k4FgLt" target="_blank">
+              <h1 class="ui green center aligned basic header label">LINE</h1>
+            </a>
+          </div>
+          <div class="column">
+            <img class="ui image" data-src="QR code/qrCode.png" />
+            <a href="https://www.facebook.com/ilovesinminli/?ref=page_internal" target="_blank">
+              <h1 class="ui blue center aligned basic header label">FB粉專</h1>
+            </a>
+          </div>
+          <div class="column">
+            <img class="ui image" data-src="QR code/意見表qrCode.png" />
+            <a href="https://forms.gle/LJdoo7mNJuumt9C17" target="_blank">
+              <h1 class="ui violet center aligned basic header label">意見表單</h1>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -248,7 +254,7 @@ nav {
     margin-top: -20vh;
     margin-top: calc(var(--vh, 1vh) * -20);
     margin-left: calc(100vw - 100vh * 0.6);
-    margin-left: calc( 100vw + var(--vh, 1vh) * -60);
+    margin-left: calc(100vw + var(--vh, 1vh) * -60);
     z-index: -1;
   }
 }
@@ -289,14 +295,14 @@ nav {
 
 @media screen and (max-width:425px) {
 
-.column .ui.huge.text:nth-of-type(1) {
-  font-size: 18vw;
-  margin-top: calc(80vh - 50vw);
-}
+  .column .ui.huge.text:nth-of-type(1) {
+    font-size: 18vw;
+    margin-top: calc(80vh - 50vw);
+  }
 
-.column .ui.huge.text:nth-of-type(2) {
-  font-size: 18vw;
-  margin-top: calc(80vh - 28vw);
-}
+  .column .ui.huge.text:nth-of-type(2) {
+    font-size: 18vw;
+    margin-top: calc(80vh - 28vw);
+  }
 }
 </style>

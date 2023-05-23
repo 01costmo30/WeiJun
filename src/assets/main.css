@@ -3,3 +3,18 @@
 .ui.hidden.button {
   display: none;
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s ease;
+}
+
+.fade-enter-from, .fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-active [style*=--time],
+.fade-leave-active [style*=--time] {
+  transition: all 0.3s ease-in-out;
+}

@@ -1,18 +1,23 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUpdated, nextTick } from 'vue';
 import TopMenu from '../components/TopMenu.vue';
+
 onMounted(() => {
+  nextTick(function () {
+    setTimeout(() => {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
+    });
 
-  var scene = document.getElementById('scene');
-  var parallaxInstance = new Parallax(scene, {
-    relativeInput: true
-  });
 
-
-  var scene1 = document.getElementById('scene1');
-  var parallaxInstance1 = new Parallax(scene1, {
-    relativeInput: true
-  });
+    var scene1 = document.getElementById('scene1');
+    var parallaxInstance1 = new Parallax(scene1, {
+      relativeInput: true
+    })
+      
+    }, 500);
+  })
 
   $('.ui.button[data-page]').on('click', function () {
     var prev = $('.shape .side.active').data('page')
@@ -23,27 +28,43 @@ onMounted(() => {
 
     if (prev > next)
       $('.shape').shape('set next side',
-        '.side[data-page=' + next + ']').shape('flip left')
+        '.side[data-page=' + next + ']').transition('fade in', '1000ms')//.shape('flip left')
     else
       $('.shape').shape('set next side',
-        '.side[data-page=' + next + ']').shape('flip right')
+        '.side[data-page=' + next + ']').transition('fade in', '1000ms')//.shape('flip right')
 
+  })
+})
+
+onUpdated(function () {
+
+  nextTick(function () {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
+    });
+
+
+    var scene1 = document.getElementById('scene1');
+    var parallaxInstance1 = new Parallax(scene1, {
+      relativeInput: true
+    });
   })
 })
 </script>
 <template>
-  <TopMenu></TopMenu>
-  <!-- <RouterLink to="/WeiJun">新民里大小事 蔡煒鈞</RouterLink> -->
-  <div class="about ui fluid container">
+  <div class="ui basic segment">
+    <TopMenu></TopMenu>
+    <!-- <div class="about ui fluid container"> -->
     <div class="ui teblet reversed mobile reversed two column stackable grid">
-      <div class="column" id="scene">
-        <div class="ui vertically fitted basic segment" data-depth="0.3">
+      <div class="center aligned column" id="scene">
+        <div class="ui padded vertically fitted basic segment" data-depth="0.2">
           <div class="ui basic large compact active button" data-page="1">你是誰？</div>
           <div class="ui basic large compact button" data-page="2">經歷</div>
           <div class="ui basic large compact button" data-page="3">為什麼想出來選里長？</div>
           <div class="ui basic large compact button" data-page="4">你年輕沒經驗，怎麼做事？</div>
         </div>
-        <div class="ui vertically fitted big basic segment" data-depth="0.4">
+        <div class="ui vertically fitted big basic segment" data-depth="0.2">
           <div class="ui square shape">
             <div class="sides">
               <div class="side active" data-page="1">
@@ -89,12 +110,17 @@ onMounted(() => {
         </div> -->
       </div>
     </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <style scoped>
 #app:has(.ui.secondary.menu) {
   background: url('@/assets/mesh-743.png');
+}
+
+.ui.square.shape.animating {
+  width: 100%;
 }
 
 .shape .side .justify {
