@@ -1,18 +1,23 @@
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onUpdated, nextTick } from 'vue';
 import TopMenu from '../components/TopMenu.vue';
+
 onMounted(() => {
+  nextTick(function () {
+    setTimeout(() => {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
+    });
 
-  var scene = document.getElementById('scene');
-  var parallaxInstance = new Parallax(scene, {
-    relativeInput: true
-  });
 
-
-  var scene1 = document.getElementById('scene1');
-  var parallaxInstance1 = new Parallax(scene1, {
-    relativeInput: true
-  });
+    var scene1 = document.getElementById('scene1');
+    var parallaxInstance1 = new Parallax(scene1, {
+      relativeInput: true
+    })
+      
+    }, 500);
+  })
 
   $('.ui.button[data-page]').on('click', function () {
     var prev = $('.shape .side.active').data('page')
@@ -23,27 +28,43 @@ onMounted(() => {
 
     if (prev > next)
       $('.shape').shape('set next side',
-        '.side[data-page=' + next + ']').shape('flip left')
+        '.side[data-page=' + next + ']').shape('flip up')//.transition('fade in', '1000ms')
     else
       $('.shape').shape('set next side',
-        '.side[data-page=' + next + ']').shape('flip right')
+        '.side[data-page=' + next + ']').shape('flip down')//.transition('fade in', '1000ms')
 
+  })
+})
+
+onUpdated(function () {
+
+  nextTick(function () {
+    var scene = document.getElementById('scene');
+    var parallaxInstance = new Parallax(scene, {
+      relativeInput: true
+    });
+
+
+    var scene1 = document.getElementById('scene1');
+    var parallaxInstance1 = new Parallax(scene1, {
+      relativeInput: true
+    });
   })
 })
 </script>
 <template>
-  <TopMenu></TopMenu>
-  <!-- <RouterLink to="/WeiJun">新民里大小事 蔡煒鈞</RouterLink> -->
-  <div class="about ui fluid container">
+  <div class="ui basic segment">
+    <TopMenu></TopMenu>
+    <!-- <div class="about ui fluid container"> -->
     <div class="ui teblet reversed mobile reversed two column stackable grid">
-      <div class="column" id="scene">
-        <div class="ui vertically fitted basic segment" data-depth="0.3">
+      <div class="center aligned column" id="scene">
+        <div class="ui padded vertically fitted basic segment" data-depth="0.2">
           <div class="ui basic large compact active button" data-page="1">你是誰？</div>
           <div class="ui basic large compact button" data-page="2">經歷</div>
           <div class="ui basic large compact button" data-page="3">為什麼想出來選里長？</div>
           <div class="ui basic large compact button" data-page="4">你年輕沒經驗，怎麼做事？</div>
         </div>
-        <div class="ui vertically fitted big basic segment" data-depth="0.4">
+        <div class="ui vertically fitted big basic segment" data-depth="0.2">
           <div class="ui square shape">
             <div class="sides">
               <div class="side active" data-page="1">
@@ -80,6 +101,8 @@ onMounted(() => {
         </div>
       </div>
       <div class="column" id="scene1">
+        <div data-depth="1" data-originX="0" class="ui medium pink image circle"></div>
+        <div data-depth="0.6" data-originX="0.5" class="ui big purple image circle"></div>
         <img data-depth="0.2" data-originX="0" class="ui image" src="/img/Photo1.png" />
         <!-- <div class="ui text" data-depth="0.3">
           <i class="huge graduation cap icon"></i>
@@ -89,12 +112,61 @@ onMounted(() => {
         </div> -->
       </div>
     </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <style scoped>
+
+.pink {
+  background-color: #efc1c5;
+}
+
+.purple {
+  background-color: #9287ce;
+}
+
+.circle {
+  border-radius: 100rem;
+}
+
+div>.circle {
+  float: left;
+}
+
+div>.big.circle {
+  margin: 6em 0 0 6em;
+}
+
+.ui.medium.circle.image {
+  height: 300px;
+}
+
+.ui.large.circle.image {
+  height: 450px;
+}
+
+.ui.big.circle.image {
+  height: 600px;
+}
+
+.ui.huge.circle.image {
+  height: 800px;
+}
+
+#scene1 {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+  /* overflow-y: hidden;
+  overflow-x:visible; */
+}
+
 #app:has(.ui.secondary.menu) {
   background: url('@/assets/mesh-743.png');
+}
+
+.ui.square.shape.animating {
+  width: 100%;
 }
 
 .shape .side .justify {
@@ -120,7 +192,7 @@ onMounted(() => {
 .ui.grid .column img {
   object-fit: cover;
   width: min(90vw, 90%);
-  height: min(120vw, 80vh);
+  height: min(120vw, 90vh);
   object-position: top;
   margin: 10% auto 0;
 }
@@ -135,5 +207,12 @@ i.suitcase {
   transform: rotate(30deg);
   top: 50vh;
   left: 60vw;
+}
+
+@media screen and (min-width: 768px) {
+  .ui.grid {
+    max-height: 100vh;
+    overflow: hidden;
+  }
 }
 </style>
