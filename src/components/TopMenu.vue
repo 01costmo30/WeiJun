@@ -14,12 +14,11 @@ onMounted(() => {
       蔡煒鈞
     </RouterLink>
     <div class="right menu" style="font-size: 1.5rem;">
-      <!-- <div class="item" @click="showModal">聯絡方式</div> -->
       <RouterLink class="item" to="/WeiJun/ContactUs">聯絡方式</RouterLink>
       <RouterLink class="item" to="/WeiJun/About">認識煒鈞</RouterLink>
+      <div class="item mobile"><i class="info circle icon"></i></div>
     </div>
   </div>
-  <!-- <ContactInfo></ContactInfo> -->
 </template>
 <style scoped>
 .ui.secondary.pointing.menu {
@@ -48,5 +47,17 @@ onMounted(() => {
 
 .ui.menu .right.menu .item.active {
   border-bottom-width: .2em;
+}
+
+@media screen and (min-width: 768px) {
+  .ui.menu .right.menu .item.mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .ui.menu .right.menu .item:not(.mobile) {
+    display: none;
+  }
 }
 </style>
