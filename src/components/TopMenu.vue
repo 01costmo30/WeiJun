@@ -1,25 +1,14 @@
 <script setup>
-// import ContactInfo from './ContactInfo.vue';
-
-// function showModal() {
-//   $('.ui.overlay.fullscreen.modal')
-//     .modal({
-//       inverted: true,
-//       blurring: true,
-//       onVisible: function () {
-//         $('.column img.image')
-//           .visibility({
-//             context: '.scrolling.content',
-//             type: 'image',
-//             transition: 'fade in',
-//             duration: 1000
-//           });
-//       }
-//     }).modal('show');
-// }
+import { onMounted } from 'vue';
+onMounted(() => {
+  // var scene = document.getElementById('mast-menu');
+  // var parallaxInstance = new Parallax(scene, {
+  //   relativeInput: true
+  // });
+})
 </script>
 <template>
-  <div class="ui top fixed secondary pointing massive menu">
+  <div class="ui top fixed secondary pointing massive menu" id="mast-menu">
     <RouterLink class="ui big header item" to="/WeiJun">
       <img class="ui medium image" alt="Vue logo" src="/img/3.png" />
       蔡煒鈞
@@ -57,7 +46,7 @@
   margin: 0 .8rem -2px;
 }
 
-.ui.menu .item.active {
+.ui.menu .right.menu .item.active {
   border-bottom-width: .2em;
 }
 </style>

@@ -5,17 +5,17 @@ import TopMenu from '../components/TopMenu.vue';
 onMounted(() => {
   nextTick(function () {
     setTimeout(() => {
-    var scene = document.getElementById('scene');
-    var parallaxInstance = new Parallax(scene, {
-      relativeInput: true
-    });
+      var scene = document.getElementById('scene');
+      var parallaxInstance = new Parallax(scene, {
+        relativeInput: true
+      });
 
 
-    var scene1 = document.getElementById('scene1');
-    var parallaxInstance1 = new Parallax(scene1, {
-      relativeInput: true
-    })
-      
+      var scene1 = document.getElementById('scene1');
+      var parallaxInstance1 = new Parallax(scene1, {
+        relativeInput: true
+      })
+
     }, 500);
   })
 
@@ -33,22 +33,18 @@ onMounted(() => {
       $('.shape').shape('set next side',
         '.side[data-page=' + next + ']').shape('flip down')//.transition('fade in', '1000ms')
 
-  })
-})
-
-onUpdated(function () {
-
-  nextTick(function () {
-    var scene = document.getElementById('scene');
-    var parallaxInstance = new Parallax(scene, {
-      relativeInput: true
-    });
+    nextTick(function () {
+      var scene = document.getElementById('scene');
+      var parallaxInstance = new Parallax(scene, {
+        relativeInput: true
+      });
 
 
-    var scene1 = document.getElementById('scene1');
-    var parallaxInstance1 = new Parallax(scene1, {
-      relativeInput: true
-    });
+      var scene1 = document.getElementById('scene1');
+      var parallaxInstance1 = new Parallax(scene1, {
+        relativeInput: true
+      });
+    })
   })
 })
 </script>
@@ -101,8 +97,9 @@ onUpdated(function () {
         </div>
       </div>
       <div class="column" id="scene1">
+
         <div data-depth="1" data-originX="0" class="ui medium pink image circle"></div>
-        <div data-depth="0.6" data-originX="0.5" class="ui big purple image circle"></div>
+        <div data-depth="0.6" data-originX="0.5" class="ui big purple image circle"></div> 
         <img data-depth="0.2" data-originX="0" class="ui image" src="/img/Photo1.png" />
         <!-- <div class="ui text" data-depth="0.3">
           <i class="huge graduation cap icon"></i>
@@ -117,7 +114,6 @@ onUpdated(function () {
 </template>
 
 <style scoped>
-
 .pink {
   background-color: #efc1c5;
 }
@@ -126,43 +122,11 @@ onUpdated(function () {
   background-color: #9287ce;
 }
 
-.circle {
-  border-radius: 100rem;
-}
-
-div>.circle {
-  float: left;
-}
-
-div>.big.circle {
-  margin: 6em 0 0 6em;
-}
-
-.ui.medium.circle.image {
-  height: 300px;
-}
-
-.ui.large.circle.image {
-  height: 450px;
-}
-
-.ui.big.circle.image {
-  height: 600px;
-}
-
-.ui.huge.circle.image {
-  height: 800px;
-}
-
 #scene1 {
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
   /* overflow-y: hidden;
   overflow-x:visible; */
-}
-
-#app:has(.ui.secondary.menu) {
-  background: url('@/assets/mesh-743.png');
 }
 
 .ui.square.shape.animating {
@@ -212,6 +176,7 @@ i.suitcase {
 @media screen and (min-width: 768px) {
   .ui.grid {
     max-height: 100vh;
+
     overflow: hidden;
   }
 }
