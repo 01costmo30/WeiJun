@@ -32,20 +32,20 @@ onMounted(() => {
     else
       $('.shape').shape('set next side',
         '.side[data-page=' + next + ']').shape('flip down')//.transition('fade in', '1000ms')
-
-    nextTick(function () {
-      var scene = document.getElementById('scene');
-      var parallaxInstance = new Parallax(scene, {
-        relativeInput: true
-      });
-
-
-      var scene1 = document.getElementById('scene1');
-      var parallaxInstance1 = new Parallax(scene1, {
-        relativeInput: true
-      });
-    })
   })
+
+    // nextTick(function () {
+    //   var scene = document.getElementById('scene');
+    //   var parallaxInstance = new Parallax(scene, {
+    //     relativeInput: true
+    //   });
+
+
+    //   var scene1 = document.getElementById('scene1');
+    //   var parallaxInstance1 = new Parallax(scene1, {
+    //     relativeInput: true
+    //   });
+    // })
 })
 </script>
 <template>
