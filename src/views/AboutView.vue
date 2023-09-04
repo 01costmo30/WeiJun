@@ -6,7 +6,7 @@ import StyledTxt from '../components/StyledTxt.vue';
 
 onMounted(() => {
   nextTick(function () {
-    //setTimeout(() => {
+    // setTimeout(() => {
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene, {
       relativeInput: true
@@ -18,7 +18,7 @@ onMounted(() => {
       relativeInput: true
     })
 
-    //}, 100);
+    // }, 100);
   })
 
   $('.ui.button[data-page]').on('click', function () {
@@ -88,7 +88,6 @@ onMounted(() => {
         </div>
       </div>
       <div class="column" id="scene1">
-        <Bubble data-depth=".8" data-originX="0.3" class="purple"></Bubble>
         <Bubble data-depth="1" data-originX="0" class="medium purple"></Bubble>
         <Bubble data-depth="0.6" data-originX="0.5" class="big pink"></Bubble>
         <img data-depth="0.2" data-originX="0" class="ui image" src="/img/Photo1.png" />
@@ -132,6 +131,10 @@ onMounted(() => {
 
 .clear {
   clear: both;
+}
+
+#app:has(.ui.secondary.menu) {
+  background: url('@/assets/mesh-743.png');
 }
 
 .ui.square.shape.animating {

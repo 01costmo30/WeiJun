@@ -1,7 +1,6 @@
 # WeiJun
 
-This template should help get you started developing with Vue 3 in Vite.
-以簡易的電子名片為發想做設計；
+以簡易的電子名片為發想做為設計基礎
 
 ## Recommended IDE Setup
 

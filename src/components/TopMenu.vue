@@ -21,8 +21,7 @@ onMounted(() => {
       <div class="item mobile ui right top pointing violet icon dropdown"><i class="info circle icon"></i>
         <div class="menu">
           <RouterLink class="item" to="/WeiJun/ContactUs">聯絡方式</RouterLink>
-          <RouterLink class="item" to="/WeiJun/About">認識煒鈞</RouterLink>
-        </div>
+          <RouterLink class="item" to="/WeiJun/About">認識煒鈞</RouterLink></div>
       </div>
     </div>
   </div>
