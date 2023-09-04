@@ -1,11 +1,12 @@
 <script setup>
 import { onMounted, onUpdated, nextTick } from 'vue';
 import { RouterLink } from 'vue-router';
+import Bubble from './Bubble.vue';
 // import ContactInfo from './ContactInfo.vue';
 
 onMounted(() => {
   nextTick(function () {
-  setTimeout(() => {
+    // setTimeout(() => {
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene, {
       relativeInput: true
@@ -16,8 +17,8 @@ onMounted(() => {
     var parallaxInstance1 = new Parallax(scene1, {
       relativeInput: true
     })
-    
-  }, 400);
+
+    // }, 100);
   })
   // $('.column .image img')
   // .visibility({
@@ -75,14 +76,14 @@ onUpdated(() => {
             <!-- <RouterLink class="ui tertiary massive button" to="/">Home</RouterLink> -->
             <!-- <RouterLink class="ui tertiary massive button" to="/about">聯絡信箱</RouterLink> -->
             <!-- <div class="ui tertiary massive button" @click="showModal">聯絡方式</div> -->
-            <RouterLink class="ui tertiary massive button" to="/WeiJun/ContactUs">聯絡方式</RouterLink>
-            <RouterLink class="ui tertiary massive button" to="/WeiJun/About">認識煒鈞</RouterLink>
+            <RouterLink class="ui tertiary violet massive button" to="/WeiJun/ContactUs">聯絡方式</RouterLink>
+            <RouterLink class="ui tertiary violet massive button" to="/WeiJun/About">認識煒鈞</RouterLink>
           </nav>
         </div>
       </div>
       <div id="scene" class="column">
-        <div data-depth="1" data-originX="0" class="ui medium pink image circle"></div>
-        <div data-depth="0.6" data-originX="0.5" class="ui big purple image circle"></div>
+        <Bubble data-depth="1" data-originX="0" class="medium pink"></Bubble>
+        <Bubble data-depth="0.6" data-originX="0.5" class="big purple"></Bubble>
         <img data-depth="0.2" data-originX="0" class="ui image" src="/img/Photo1.png" />
         <span data-depth="0.1" data-origin-x=".5" data-origin-y=".5" class="ui huge massive text">煒鈞用心</span>
         <span data-depth="0.1" data-origin-x=".5" data-origin-y=".5" class="ui huge massive text">新民創新</span>
@@ -123,6 +124,16 @@ div>.big.circle {
   margin: 6em 0 0 6em;
 }
 
+.ui.violet.tertiary.button:not(:hover) {
+  color: rgba(0, 0, 0, .6);
+}
+
+.ui.violet.tertiary.button:hover {
+  color: #6435c9;
+  -webkit-box-shadow: inset 0 -0.2em 0 #6435c9;
+  box-shadow: inset 0 -0.2em 0 #6435c9;
+}
+
 #scene {
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
@@ -133,22 +144,6 @@ div>.big.circle {
 /* #scene img {
   margin: 0em 0 0 -6em;
 } */
-
-.ui.medium.circle.image {
-  height: 300px;
-}
-
-.ui.large.circle.image {
-  height: 450px;
-}
-
-.ui.big.circle.image {
-  height: 600px;
-}
-
-.ui.huge.circle.image {
-  height: 800px;
-}
 
 .ui.massive.header {
   display: flex !important;
@@ -227,27 +222,27 @@ nav {
   }
 
   .ui.two.column.doubling.grid .column:nth-of-type(2) {
-    max-height: 100vh;
+    /* max-height: 100vh;
     max-height: calc(var(--vh, 1vh) * 100);
     margin-top: -20vh;
     margin-top: calc(var(--vh, 1vh) * -20);
     margin-left: calc(100vw - 100vh * 0.6);
-    margin-left: calc(100vw + var(--vh, 1vh) * -60);
+    margin-left: calc(100vw + var(--vh, 1vh) * -60); */
+    width: 90vw !important;
+    margin-left: auto;
     z-index: -1;
   }
 }
 
 @media screen and (max-width: 625px) {
-  .ui.two.column.doubling.grid .column:nth-of-type(2) {
+  .ui.two.column.doubling.grid #scene.column:nth-of-type(2) {
+    min-height: 80vh;
+    min-height: calc(var(--vh, 1vh) * 80);
     max-height: 80vh;
     max-height: calc(var(--vh, 1vh) * 80);
     margin-top: 0;
-    margin-left: 0;
-  }
-
-  #scene {
-    min-height: 80vh;
-    min-height: calc(var(--vh, 1vh) * 80);
+    width: 90vw !important;
+    margin-left: auto;
   }
 
   .column .ui.huge.text:nth-of-type(1) {
@@ -271,7 +266,10 @@ nav {
   }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 425px) {
+  .ui.two.column.doubling.grid #scene.column:nth-of-type(2) {
+    width: 95vw !important;
+  }
 
   .column .ui.huge.text:nth-of-type(1) {
     font-size: 18vw;
@@ -281,6 +279,39 @@ nav {
   .column .ui.huge.text:nth-of-type(2) {
     font-size: 18vw;
     margin-top: calc(80vh - 28vw);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  nav .ui.ui.ui.massive.button {
+    font-size: 1.42857143rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  nav {
+    margin-left: 1.5em;
+  }
+  nav .ui.ui.ui.massive.button {
+    padding: .5em .3em !important;
+  }
+
+  .column .ui.huge.text:nth-of-type(1) {
+    font-size: 18vw;
+    margin-top: calc(80vh - 80vw);
+  }
+
+  .column .ui.huge.text:nth-of-type(2) {
+    font-size: 18vw;
+    margin-top: calc(80vh - 58vw);
+  }
+
+  .ui.two.column.doubling.grid #scene.column:nth-of-type(2) {
+    max-height: 68vh;
+    max-height: calc(var(--vh, 1vh) * 68);
+    min-height: 68vh;
+    min-height: calc(var(--vh, 1vh) * 68);
+    margin-top: auto;
   }
 }
 </style>

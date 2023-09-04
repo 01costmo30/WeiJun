@@ -1,10 +1,12 @@
 <script setup>
 import { onMounted, onUpdated, nextTick } from 'vue';
 import TopMenu from '../components/TopMenu.vue';
+import Bubble from '../components/Bubble.vue';
+import StyledTxt from '../components/StyledTxt.vue';
 
 onMounted(() => {
   nextTick(function () {
-    setTimeout(() => {
+    //setTimeout(() => {
     var scene = document.getElementById('scene');
     var parallaxInstance = new Parallax(scene, {
       relativeInput: true
@@ -15,8 +17,8 @@ onMounted(() => {
     var parallaxInstance1 = new Parallax(scene1, {
       relativeInput: true
     })
-      
-    }, 500);
+
+    //}, 100);
   })
 
   $('.ui.button[data-page]').on('click', function () {
@@ -32,39 +34,23 @@ onMounted(() => {
     else
       $('.shape').shape('set next side',
         '.side[data-page=' + next + ']').shape('flip down')//.transition('fade in', '1000ms')
-
-  })
-})
-
-onUpdated(function () {
-
-  nextTick(function () {
-    var scene = document.getElementById('scene');
-    var parallaxInstance = new Parallax(scene, {
-      relativeInput: true
-    });
-
-
-    var scene1 = document.getElementById('scene1');
-    var parallaxInstance1 = new Parallax(scene1, {
-      relativeInput: true
-    });
   })
 })
 </script>
 <template>
-  <div class="ui basic segment">
+  <div class="ui basic tablet-fitted segment">
     <TopMenu></TopMenu>
     <!-- <div class="about ui fluid container"> -->
     <div class="ui teblet reversed mobile reversed two column stackable grid">
       <div class="center aligned column" id="scene">
-        <div class="ui padded vertically fitted basic segment" data-depth="0.2">
+        <StyledTxt data-depth="0.1" class="desktop" style="text-align: left;margin-left: 1.5rem;">認識煒鈞</StyledTxt>
+        <div class="ui padded vertically fitted basic segment" data-depth="0.1">
           <div class="ui basic large compact active button" data-page="1">你是誰？</div>
           <div class="ui basic large compact button" data-page="2">經歷</div>
           <div class="ui basic large compact button" data-page="3">為什麼想出來選里長？</div>
           <div class="ui basic large compact button" data-page="4">你年輕沒經驗，怎麼做事？</div>
         </div>
-        <div class="ui vertically fitted big basic segment" data-depth="0.2">
+        <div class="ui vertically fitted big basic segment" data-depth="0.1">
           <div class="ui square shape">
             <div class="sides">
               <div class="side active" data-page="1">
@@ -98,60 +84,37 @@ onUpdated(function () {
               </div>
             </div>
           </div>
+          <p class="ui basic fitted segment"></p>
         </div>
       </div>
       <div class="column" id="scene1">
-        <div data-depth="1" data-originX="0" class="ui medium pink image circle"></div>
-        <div data-depth="0.6" data-originX="0.5" class="ui big purple image circle"></div>
+        <Bubble data-depth=".8" data-originX="0.3" class="purple"></Bubble>
+        <Bubble data-depth="1" data-originX="0" class="medium purple"></Bubble>
+        <Bubble data-depth="0.6" data-originX="0.5" class="big pink"></Bubble>
         <img data-depth="0.2" data-originX="0" class="ui image" src="/img/Photo1.png" />
+        <StyledTxt data-depth="0.1" data-origin-x=".5" data-origin-y=".5" class="tablet">認識煒鈞</StyledTxt>
         <!-- <div class="ui text" data-depth="0.3">
           <i class="huge graduation cap icon"></i>
         </div>
         <div class="ui text" data-depth="0.4" data-origin-x="0.5" data-origin-y="0.5">
           <i class="huge suitcase icon"></i>
         </div> -->
+
+        <div class="clear bg-trans"></div>
       </div>
     </div>
+    <div class="ui basic tablet tablet-bg-white segment"></div>
     <!-- </div> -->
   </div>
 </template>
 
 <style scoped>
-
 .pink {
   background-color: #efc1c5;
 }
 
 .purple {
   background-color: #9287ce;
-}
-
-.circle {
-  border-radius: 100rem;
-}
-
-div>.circle {
-  float: left;
-}
-
-div>.big.circle {
-  margin: 6em 0 0 6em;
-}
-
-.ui.medium.circle.image {
-  height: 300px;
-}
-
-.ui.large.circle.image {
-  height: 450px;
-}
-
-.ui.big.circle.image {
-  height: 600px;
-}
-
-.ui.huge.circle.image {
-  height: 800px;
 }
 
 #scene1 {
@@ -161,8 +124,14 @@ div>.big.circle {
   overflow-x:visible; */
 }
 
-#app:has(.ui.secondary.menu) {
-  background: url('@/assets/mesh-743.png');
+#scene1.column .ui.huge.text:nth-of-type(1) {
+  margin-top: calc(100vh - 1.5em);
+  z-index: 1;
+  margin-left: .2em;
+}
+
+.clear {
+  clear: both;
 }
 
 .ui.square.shape.animating {
@@ -183,6 +152,10 @@ div>.big.circle {
   ;
 }
 
+.ui.grid {
+  overflow: hidden;
+}
+
 .ui.grid .column:has(.square) {
   display: flex;
   flex-direction: column;
@@ -192,9 +165,9 @@ div>.big.circle {
 .ui.grid .column img {
   object-fit: cover;
   width: min(90vw, 90%);
-  height: min(120vw, 90vh);
+  height: min(120vw, 100vh);
   object-position: top;
-  margin: 10% auto 0;
+  margin: 5% auto 0;
 }
 
 i.graduation {
@@ -209,10 +182,122 @@ i.suitcase {
   left: 60vw;
 }
 
+@media screen and (max-width: 132.49vh) {
+  .ui.grid {
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  #scene1 {
+    margin-top: auto;
+    height: min(120vw, 100vh);
+    min-height: unset;
+  }
+
+  .ui.grid .column img {
+    width: auto;
+    max-width: unset;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .ui.grid {
     max-height: 100vh;
-    overflow: hidden;
+  }
+
+  .ui.tablet.segment {
+    display: none;
+  }
+
+  .tablet.text {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+
+  #scene {
+    background: #fff;
+    z-index: 1;
+    margin-top: -2px !important;
+  }
+
+  #scene1 {
+    min-height: 90vh;
+    min-height: calc(var(--vh, 1vh) * 90);
+    max-height: 90vh;
+    max-height: calc(var(--vh, 1vh) * 90);
+  }
+
+  .ui.grid .column img {
+    height: min(120vw, 85vh);
+  }
+
+  .bg-trans {
+    width: 100vw;
+    min-height: 90vh;
+    min-height: calc(var(--vh, 1vh) * 90);
+    background: linear-gradient(0deg, white 0%, white 5%, rgba(255, 255, 255, .1) 36%, transparent 45%);
+  }
+
+  #scene1.column .ui.huge.text:nth-of-type(1) {
+    margin-top: calc(90vh - 1.5em);
+    margin-left: 1.5rem;
+    z-index: 1;
+  }
+
+  .ui.tablet-fitted.segment {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .tablet.tablet.tablet-bg-white {
+    background-color: #fff;
+  }
+
+  .desktop.text {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 475px) {
+
+  #scene1 {
+    min-height: 63vh;
+    min-height: calc(var(--vh, 1vh) * 63);
+    max-height: 63vh;
+    max-height: calc(var(--vh, 1vh) * 63);
+  }
+
+  .ui.grid .column img {
+    width: min(100vw, 100%);
+    height: min(120vw, 63vh);
+    min-height: 63vh;
+    min-height: calc(var(--vh, 1vh) * 63);
+    max-height: 63vh;
+    max-height: calc(var(--vh, 1vh) * 63);
+  }
+
+  .bg-trans {
+    min-height: 64vh;
+    min-height: calc(var(--vh, 1vh) * 64);
+    max-height: 64vh;
+    max-height: calc(var(--vh, 1vh) * 64);
+  }
+
+  #scene1.column .ui.huge.text:nth-of-type(1) {
+    margin-top: calc(63vh - 1.5em);
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  #scene1.column .ui.huge.text:nth-of-type(1) {
+    font-size: 18vw;
   }
 }
 </style>

@@ -14,7 +14,7 @@ onMounted(()=> {
       onVisible: function () {
         $('.column img.image')
           .visibility({
-            context: '.scrolling.content',
+            context: '.modal .scrolling.content',
             type: 'image',
             transition: 'fade in',
             duration: 1000
@@ -32,7 +32,7 @@ onMounted(()=> {
   <div class="ui overlay fullscreen modal">
     <i class="close icon"></i>
     <div class="scrolling content">
-      <div class="ui three column doubling stackable vary padded grid">
+      <div class="ui three column centered doubling stackable vary padded grid">
         <div class="column">
           <img class="ui image" data-src="/QR code/OfficalQRCode.png" />
           <a class="ui green center aligned basic header label" href="https://lin.ee/4k4FgLt" target="_blank">
@@ -88,6 +88,7 @@ onMounted(()=> {
 
 .ui.modal .content .column img.image {
   filter: drop-shadow(0px 0px 8px white);
+  width: min(calc(100vh - 2.5em), 100vw);
 }
 
 .ui.modal .content .header.label {
