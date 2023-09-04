@@ -152,7 +152,6 @@ onMounted(() => {
 
 #scene [data-depth] {
   position: relative !important;
-  ;
 }
 
 .ui.grid {
@@ -172,7 +171,7 @@ onMounted(() => {
 .ui.grid .column img {
   object-fit: cover;
   width: min(90vw, 90%);
-  height: min(120vw, 100vh);
+  height: min(120vw, 100%);
   object-position: top;
   margin: 5% auto 0;
 }
@@ -209,7 +208,7 @@ i.suitcase {
 
 @media screen and (min-width: 768px) {
   .ui.grid {
-    max-height: 100vh;
+    min-height: 100vh;
   }
 
   .ui.tablet.segment {
