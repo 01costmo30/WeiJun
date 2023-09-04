@@ -159,6 +159,10 @@ onMounted(() => {
   overflow: hidden;
 }
 
+.ui.grid > [class*="center aligned"].column.column {
+  align-self: center;
+}
+
 .ui.grid .column:has(.square) {
   display: flex;
   flex-direction: column;
