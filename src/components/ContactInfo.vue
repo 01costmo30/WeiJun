@@ -34,19 +34,19 @@ onMounted(()=> {
     <div class="scrolling content">
       <div class="ui three column centered doubling stackable vary padded grid">
         <div class="column">
-          <img class="ui image" data-src="/QR code/OfficalQRCode.png" />
+          <img class="ui image" data-src="QR code/OfficalQRCode.png" />
           <a class="ui green center aligned basic header label" href="https://lin.ee/4k4FgLt" target="_blank">
             <h1>LINE</h1>
           </a>
         </div>
         <div class="column">
-          <img class="ui image" data-src="/QR code/qrCode.png" />
+          <img class="ui image" data-src="QR code/qrCode.png" />
           <a class="ui blue center aligned basic header label" href="https://www.facebook.com/ilovesinminli/?ref=page_internal" target="_blank">
             <h1>FB粉專</h1>
           </a>
         </div>
         <div class="column">
-          <img class="ui image" data-src="/QR code/意見表qrCode.png" />
+          <img class="ui image" data-src="QR code/意見表qrCode.png" />
           <a class="ui violet center aligned basic header label" href="https://forms.gle/LJdoo7mNJuumt9C17" target="_blank">
             <h1>意見表單</h1>
           </a>
