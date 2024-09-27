@@ -1,28 +1,28 @@
 <script setup>
 import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import SubMenu from './SubMenu.vue';
+
+var router = useRouter();
+var routes = router.getRoutes().filter(item => item.path !== '/' && item.path !== '').reverse();
+
 onMounted(() => {
-  // var scene = document.getElementById('mast-menu');
-  // var parallaxInstance = new Parallax(scene, {
-  //   relativeInput: true
-  // });
 
   $('#mast-menu .right.menu .item.ui.dropdown').dropdown()
 })
 </script>
 <template>
   <div class="ui top fixed secondary pointing massive menu" id="mast-menu">
-    <RouterLink class="ui big header item" to="/WeiJun">
+    <RouterLink class="ui big header item" to="/">
       <img class="ui medium image" alt="Vue logo" src="/img/3.png" />
       蔡煒鈞
     </RouterLink>
     <div class="right menu" style="font-size: 1.5rem;">
-      <RouterLink class="item" to="/WeiJun/ContactUs">聯絡方式</RouterLink>
-      <RouterLink class="item" to="/WeiJun/About">認識煒鈞</RouterLink>
-      <div class="item mobile ui right top pointing violet icon dropdown"><i class="info circle icon"></i>
-        <div class="menu">
-          <RouterLink class="item" to="/WeiJun/ContactUs">聯絡方式</RouterLink>
-          <RouterLink class="item" to="/WeiJun/About">認識煒鈞</RouterLink></div>
-      </div>
+      <RouterLink class="item" v-for="item in routes" :to="item.path">{{ item.name }}</RouterLink>
+      <SubMenu class="mobile right top pointing violet">
+        <template #icon><i class="info circle icon"></i></template>
+        <RouterLink class="item" v-for="item in routes" :to="item.path">{{ item.name }}</RouterLink>
+      </SubMenu>
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ onMounted(() => {
   padding: 0 1.5rem;
 }
 
-.ui.menu .right.menu > .item {
+.ui.menu .right.menu>.item {
   padding: .5em;
   margin: 0 .8rem -2px;
 }

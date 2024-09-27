@@ -1,8 +1,10 @@
 <script setup>
 import { onMounted, onUpdated, nextTick } from 'vue';
-import { RouterLink } from 'vue-router';
+import { useRouter } from 'vue-router';
 import Bubble from './Bubble.vue';
-// import ContactInfo from './ContactInfo.vue';
+
+var router = useRouter();
+var routes = router.getRoutes().filter(item => item.path !== '/' && item.path !== '').reverse();
 
 onMounted(() => {
   nextTick(function () {
@@ -17,16 +19,7 @@ onMounted(() => {
     var parallaxInstance1 = new Parallax(scene1, {
       relativeInput: true
     })
-
-    // }, 100);
   })
-  // $('.column .image img')
-  // .visibility({
-  // context    : '.dimmer',
-  //   type       : 'image',
-  //   transition : 'fade in',
-  //   duration   : 1000
-  // });
 })
 
 onUpdated(() => {
@@ -43,23 +36,6 @@ onUpdated(() => {
     })
   })
 })
-
-// function showModal() {
-//   $('.ui.overlay.fullscreen.modal')
-//     .modal({
-//       inverted: true,
-//       blurring: true,
-//       onVisible: function () {
-//         $('.column img.image')
-//           .visibility({
-//             context: '.scrolling.content',
-//             type: 'image',
-//             transition: 'fade in',
-//             duration: 1000
-//           });
-//       }
-//     }).modal('show');
-// }
 </script>
 
 <template>
@@ -73,11 +49,7 @@ onUpdated(() => {
           </h1>
 
           <nav data-depth="0.2" data-origin-x="1" data-origin-y="1">
-            <!-- <RouterLink class="ui tertiary massive button" to="/">Home</RouterLink> -->
-            <!-- <RouterLink class="ui tertiary massive button" to="/about">聯絡信箱</RouterLink> -->
-            <!-- <div class="ui tertiary massive button" @click="showModal">聯絡方式</div> -->
-            <RouterLink class="ui tertiary violet massive button" to="/WeiJun/ContactUs">聯絡方式</RouterLink>
-            <RouterLink class="ui tertiary violet massive button" to="/WeiJun/About">認識煒鈞</RouterLink>
+            <RouterLink class="ui tertiary violet massive button" v-for="item in routes" :to="item.path">{{ item.name }}</RouterLink>
           </nav>
         </div>
       </div>

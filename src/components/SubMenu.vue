@@ -1,12 +1,15 @@
+<script setup>
+import { onMounted, useSlots } from 'vue';
+
+const slots = useSlots();
+onMounted(()=> {
+  console.log(slots, slots.default)
+})
+</script>
 <template>
-  <div class="item">
-    <i>
+  <div class="item ui icon dropdown">
       <slot name="icon"></slot>
-    </i>
-    <div class="details">
-      <h3>
-        <slot name="heading"></slot>
-      </h3>
+    <div class="menu">
       <slot></slot>
     </div>
   </div>
